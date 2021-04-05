@@ -2,7 +2,7 @@
 clear all; close all; clc
 
 %%
-default_path = 'C:\Users\Desktop\audio'; % ºĞ¼®ÇÒ µ¥ÀÌÅÍ°¡ ÀÖ´Â Æú´õÀÇ À§Ä¡ ¼³Á¤
+default_path = 'C:\Users\Desktop\audio'; % ë¶„ì„í•  ë°ì´í„°ê°€ ìˆëŠ” í´ë”ì˜ ìœ„ì¹˜ ì„¤ì •
 cd(default_path)
 
 audio_Fs = 16000;     
@@ -23,13 +23,13 @@ clear empty*
     [b_notch_150, a_notch_150] = butter(3, [148 152]/(audio_Fs/2), 'stop');   % 150 Hz notch filter
     [b_notch_200, a_notch_200] = butter(3, [198 202]/(audio_Fs/2), 'stop');   % 200 Hz notch filter
     [b_notch_250, a_notch_250] = butter(3, [248 252]/(audio_Fs/2), 'stop');   % 250 Hz notch filter
-    [b, a] = butter(3, [300 4000]/(audio_Fs/2), 'bandpass');  % 300~4000 Hz ±¸°£¸¸ »ç¿ë
+    [b, a] = butter(3, [300 4000]/(audio_Fs/2), 'bandpass');  % 300~4000 Hz êµ¬ê°„ë§Œ ì‚¬ìš©
 
 %%
 for ww = 1 : length(words)
     word_path = [default_path, '\', words{ww}];
-    for ii = 1:length(hash_list) % °¢ ÀÎ¿ø¸¶´Ù 
-        for tt = 0 : 15          % trialÀÌ ÃÖ´ë 15°³±îÁö ÀÖ´Ù°í °¡Á¤
+    for ii = 1:length(hash_list) % ê° ì¸ì›ë§ˆë‹¤ 
+        for tt = 0 : 15          % trialì´ ìµœëŒ€ 15ê°œê¹Œì§€ ìˆë‹¤ê³  ê°€ì •
             clearvars -except default_path audio_Fs words txt_hash hash_list b a word_path ww ii tt b_notch* a_notch*
             close all
             
@@ -52,52 +52,52 @@ for ww = 1 : length(words)
 
 
                 temp_reject = temp_audio;
-                zero_tracker = temp_data == 0; % µ¥ÀÌÅÍ°¡ µé¾î¿ÀÁö ¾ÊÀº ±¸°£ ºĞ¼® Á¦¿Ü
+                zero_tracker = temp_data == 0; % ë°ì´í„°ê°€ ë“¤ì–´ì˜¤ì§€ ì•Šì€ êµ¬ê°„ ë¶„ì„ ì œì™¸
                 temp_audio(:,zero_tracker==1) = NaN;
         
-                NaN_tracker{ii} = isnan(temp_reject); % ³ª¸ÓÁö noise·Î ÆÇº°µÈ ±¸°£ temp_audio¿¡ Àû¿ë
+                NaN_tracker{ii} = isnan(temp_reject); % ë‚˜ë¨¸ì§€ noiseë¡œ íŒë³„ëœ êµ¬ê°„ temp_audioì— ì ìš©
                 temp_audio(NaN_tracker{ii}==1) = NaN;
         
-                Epoch_length = 0.004; % 0.004ÃÊ À©µµ¿ì »ç¿ë overlap 0.002ÃÊ
-                snr_th = 100;    % µ¥ÀÌÅÍ È®ÀÎ ÈÄ °æÇèÀûÀ¸·Î °áÁ¤ÇÑ snr noise ÆÇº° threshold
+                Epoch_length = 0.004; % 0.004ì´ˆ ìœˆë„ìš° ì‚¬ìš© overlap 0.002ì´ˆ
+                snr_th = 100;    % ë°ì´í„° í™•ì¸ í›„ ê²½í—˜ì ìœ¼ë¡œ ê²°ì •í•œ snr noise íŒë³„ threshold
  
                     iter = 1;
                     while(1)
-                        starttime = round(iter * 0.002 * audio_Fs) ; % ÃÊ¹İ 0.002ÃÊ´Â À½¼ºÀÌ ºñ¾îÀÖ±â ¶§¹®¿¡ Á¦¿Ü 
+                        starttime = round(iter * 0.002 * audio_Fs) ; % ì´ˆë°˜ 0.002ì´ˆëŠ” ìŒì„±ì´ ë¹„ì–´ìˆê¸° ë•Œë¬¸ì— ì œì™¸ 
                         try
                             Epoch{iter,1} = temp_audio([1:Epoch_length*audio_Fs]+starttime,1);
                         catch; break; end
-                        temp_nan = mean(isnan(Epoch{iter,1})) > 0; % À©µµ¿ì¸¶´Ù NaNÀÌ ÇÏ³ª¶óµµ Æ÷ÇÔµÇ¸é Á¦¿Ü
+                        temp_nan = mean(isnan(Epoch{iter,1})) > 0; % ìœˆë„ìš°ë§ˆë‹¤ NaNì´ í•˜ë‚˜ë¼ë„ í¬í•¨ë˜ë©´ ì œì™¸
                         Epoch{iter,1}(repmat(temp_nan, Epoch_length*audio_Fs, 1)) = NaN;
                         try 
                             if min(temp_nan)
                             else
                                [temp_power, F] = periodogram(Epoch{iter,1}, rectwin(Epoch_length*audio_Fs), Epoch_length*audio_Fs, audio_Fs);    
-                               [~, temp_peak] = findpeaks(temp_power(3+1:audio_Fs*Epoch_length/2+1,1), 'Npeaks', 1, 'sortstr', 'descend'); % 3 ÀÌÈÄ peak Å½»ö (freq domain)
-                               temp_snr = temp_power(temp_peak+3, 1) * (4-1) /... % peak power * (+-2 ³»ÀÇ point °³¼ö -1) / (peak power¸¦ Á¦¿ÜÇÑ +-2 ³»ÀÇ power Æò±Õ)
-                                  (sum(temp_power((temp_peak-2:temp_peak+2)+3, 1))-temp_power(temp_peak+3, 1)); % +- 2 ÀÌ³» SNR ±¸ÇÔ
+                               [~, temp_peak] = findpeaks(temp_power(3+1:audio_Fs*Epoch_length/2+1,1), 'Npeaks', 1, 'sortstr', 'descend'); % 3 ì´í›„ peak íƒìƒ‰ (freq domain)
+                               temp_snr = temp_power(temp_peak+3, 1) * (4-1) /... % peak power * (+-2 ë‚´ì˜ point ê°œìˆ˜ -1) / (peak powerë¥¼ ì œì™¸í•œ +-2 ë‚´ì˜ power í‰ê· )
+                                  (sum(temp_power((temp_peak-2:temp_peak+2)+3, 1))-temp_power(temp_peak+3, 1)); % +- 2 ì´ë‚´ SNR êµ¬í•¨
                                if temp_snr >= snr_th
                                     Epoch{iter,1}(:,:) = NaN; 
                                end    
-                            end % ¿À·ù³ª¸é ¤¸±î°í °Ç³Ê¶Ü
+                            end % ì˜¤ë¥˜ë‚˜ë©´ ã…ˆê¹Œê³  ê±´ë„ˆëœ€
                         catch; continue; end
-                        survive_epochs(iter,:) = mean(isnan(Epoch{iter,1})) == 0;  % ÃÖÁ¾ÀûÀ¸·Î »ì¾Æ³²Àº Epoch Ã¼Å©ÇÔ
+                        survive_epochs(iter,:) = mean(isnan(Epoch{iter,1})) == 0;  % ìµœì¢…ì ìœ¼ë¡œ ì‚´ì•„ë‚¨ì€ Epoch ì²´í¬í•¨
                         iter = iter +1;
                     end
                     clearvars temp_nan 
             
-                % »ì¾Æ³²Àº epoch °³¼ö count
+                % ì‚´ì•„ë‚¨ì€ epoch ê°œìˆ˜ count
                 Epoch(~survive_epochs,:)=[]; 
                 n_Epochs = length(Epoch);
                 num_nan = 498 - n_Epochs; 
-                if  n_Epochs < 98   % reject°¡ 400 (80 percents)ÀÌ»ó ÀÏ¾î³­ °ÍÀº Á¤»óÀûÀÎ À½¼ºÀÌ ¾Æ´Ñ °ÍÀ¸·Î ºĞ·ù 
+                if  n_Epochs < 98   % rejectê°€ 400 (80 percents)ì´ìƒ ì¼ì–´ë‚œ ê²ƒì€ ì •ìƒì ì¸ ìŒì„±ì´ ì•„ë‹Œ ê²ƒìœ¼ë¡œ ë¶„ë¥˜ 
                     continue
                 end
                 % save files
                 cd([default_path, '\Preprocessed'])
                 save_name = ['preprocessed_', words{ww},'_', hash_list{ii}, '_', num2str(tt), '.mat'];
                 fig_name = ['preprocessed_', words{ww},'_', hash_list{ii}, '_', num2str(tt), '.png'];
-                % spectrogram »ı¼º
+                % spectrogram ìƒì„±
                 temp_spect = cell2mat(Epoch);
                 spectrogram(temp_spect, rectwin(Epoch_length*audio_Fs), 0 , Epoch_length*audio_Fs,audio_Fs,'yaxis')
                 saveas(gcf, fig_name)
@@ -106,16 +106,3 @@ for ww = 1 : length(words)
         end
     end
 end
-
-
-
-
-
-
-
-
-
-
-
-
-

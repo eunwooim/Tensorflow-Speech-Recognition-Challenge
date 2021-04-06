@@ -8,4 +8,5 @@ Sound is produced by the vibration of an object. This vibrations determine oscil
 
 The wave form can be represented using an amplitude and a time. We define period(or wavelength) as a distance between consecutive corresponding points of the same phase on the wave, and amplitude as a distance of a peak point from zero.
 In this case, period is 25s and amplitude is 1. Frequency is the inverse of period, which is 1/4Hz in this case.
-Frequency and amplitude have relationship with pitch and loudness. Note that pitch and loudness are not some physical quantities, but perceptual. The higher frequencies are perceived as higher pitch, and higher amplitudes are perceived as louder sound.
+<br>
+Frequency and amplitude have relationship with pitch and loudness. Note that pitch and loudness are not some physical quantities, but relative perceptions. The higher frequencies are perceived as higher pitch, and higher amplitudes are perceived as louder sound.

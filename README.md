@@ -22,9 +22,9 @@ Since the sound wave is continuous, we should perform analog digital conversion.
 
 ### [FFT,Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
 If we add following two sine waves, we'll obtain some wave like this.
-<br>
+
 ![ex](https://user-images.githubusercontent.com/68213812/113825060-7c003900-97bb-11eb-9ae9-bfb6069710fd.png)
-<br>
+
 The frequency and amplitude of the first wave is 4 and 1, and the second wave is 11,2.
 <br>
 By Fourier Transform, we can decompose this periodic sound into sum of sine waves oscilliating at different frequencies. Following picture is a power spectrum of added sine wave.

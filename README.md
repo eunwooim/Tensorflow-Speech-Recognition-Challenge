@@ -20,7 +20,7 @@ Frequency and amplitude have relationship with pitch and loudness. Note that pit
 Since the sound wave is continuous, we should perform analog digital conversion. By __Sampling__, wave is sampled by specific time intervals and amplitude will be quantised by with limited number of bits. In the example, number of red stems in 1 second is __sampling rate__, and wave is converted into array of projected amplitudes(y values of blue dots).
 
 
-### [FFT,Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
+### [Fourier Transform,Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
 If we add following two sine waves, we'll obtain some wave like this.
 
 ![ex](https://user-images.githubusercontent.com/68213812/113825060-7c003900-97bb-11eb-9ae9-bfb6069710fd.png)
@@ -28,3 +28,14 @@ If we add following two sine waves, we'll obtain some wave like this.
 The frequency and amplitude of the first wave is 4 and 1, and the second wave is 11,2.
 <br>
 By Fourier Transform, we can decompose this periodic sound into sum of sine waves oscilliating at different frequencies. Following picture is a power spectrum of added sine wave.
+
+![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
+
+The spectrum gives us the magnitude(absolute value of amplitude) as a function of frequency. This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations.
+<br>
+Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
+<br>
+The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__
+
+## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)
+Erase Power Frequency and background noise

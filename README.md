@@ -39,14 +39,16 @@ In this case, you can see that two sine waves are decomposed and represented as 
 
 This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations. Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
 <br>
+
 STFT computes several Fourier Transform at different intervals in given frame size.
 <br>
-The given frame size is called __Window__, which is some number of samples. By STFT, we obtain a __Spectrogram__ which represents how much frequency is present at a given time.
+The given frame size is called __Window__, which is some number of samples. By STFT, we obtain a __Spectrogram__ which represents how much frequency is present at a given time. (For more details about STFT, visit the linked site in the reference.)
 
 ![ex](https://user-images.githubusercontent.com/68213812/113988351-5726c700-988a-11eb-9c30-d5feea970e67.png)
 
-For more details about STFT, visit the linked site in the reference.
-
+The spectrogram on the left side is presented as linear scale, and another one is presented as a log scale.
+<br>
+Therefore, we visualized features in both time and frequency domain by spectrogram.
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

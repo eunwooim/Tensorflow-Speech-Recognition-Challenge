@@ -48,7 +48,7 @@ The given frame size is called __Window__, which is some number of samples. By S
 
 The spectrogram on the left side is presented as linear scale, and another one is presented as a log scale.
 <br>
-Therefore, we visualized features in both time and frequency domain by spectrogram.
+Therefore, from an audio data, we visualized features in both time and frequency domain by spectrogram.j
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

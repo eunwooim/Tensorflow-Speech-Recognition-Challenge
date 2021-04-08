@@ -13,7 +13,6 @@ Sound is produced by the vibration of an object. This vibrations determine oscil
 
 The wave form can be represented using an amplitude and a time. We define __period__(or wavelength) as a distance between consecutive corresponding points of the same phase on the wave, and __amplitude__ as a distance of a peak point from zero.
 <br>
-
 In this case, period is 25 seconds and amplitude is 1. __Frequency__ is the inverse of period, which is 1/4Hz in this case.
 <br>
 
@@ -23,7 +22,7 @@ Frequency and amplitude have relationship with pitch and loudness. Note that pit
 Since the sound wave is continuous, we should perform analog digital conversion. By __Sampling__, wave is sampled by specific time intervals and amplitude will be quantised by with limited number of bits. In the example, number of red stems in 1 second is __sampling rate__, and wave is converted into array of projected amplitudes(y values of blue dots).
 
 
-### [Fourier Transform,Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
+### [Fourier Transform, Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
 If we add following two sine waves, we'll obtain some wave like this.
 
 ![ex](https://user-images.githubusercontent.com/68213812/113825060-7c003900-97bb-11eb-9ae9-bfb6069710fd.png)
@@ -34,8 +33,10 @@ By Fourier Transform, we can decompose this periodic sound into sum of sine wave
 
 ![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
 
-The spectrum gives us the magnitude(absolute value of amplitude) as a function of frequency. This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations.
+The spectrum gives us the magnitude(absolute value of amplitude) as a function of frequency.
+In this case, you can see that two sine waves are decomposed and represented as two peaks. 
 <br>
+This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations.
 Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
 <br>
 The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__. 

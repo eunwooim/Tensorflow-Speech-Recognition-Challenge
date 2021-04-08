@@ -13,10 +13,13 @@ Sound is produced by the vibration of an object. This vibrations determine oscil
 
 The wave form can be represented using an amplitude and a time. We define __period__(or wavelength) as a distance between consecutive corresponding points of the same phase on the wave, and __amplitude__ as a distance of a peak point from zero.
 <br>
+
 In this case, period is 25 seconds and amplitude is 1. __Frequency__ is the inverse of period, which is 1/4Hz in this case.
 <br>
+
 Frequency and amplitude have relationship with pitch and loudness. Note that pitch and loudness are not some physical quantities, but relative perceptions. The higher frequencies are perceived as higher pitch, and higher amplitudes are perceived as louder sound.
 <br>
+
 Since the sound wave is continuous, we should perform analog digital conversion. By __Sampling__, wave is sampled by specific time intervals and amplitude will be quantised by with limited number of bits. In the example, number of red stems in 1 second is __sampling rate__, and wave is converted into array of projected amplitudes(y values of blue dots).
 
 
@@ -35,7 +38,7 @@ The spectrum gives us the magnitude(absolute value of amplitude) as a function o
 <br>
 Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
 <br>
-The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__
+The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__. 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)
 Erase Power Frequency and background noise

@@ -37,11 +37,21 @@ The spectrum gives us the magnitude(absolute value of amplitude) as a function o
 <br>
 In this case, you can see that two sine waves are decomposed and represented as two peaks. 
 
-This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations.
+This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations. Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
 <br>
-Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
+STFT computes several Fourier Transform at different intervals in given frame size.
 <br>
-The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__. 
+The given frame size is called __Window__, which is some number of samples. By STFT, we obtain a __Spectrogram__ which represents how much frequency is present at a given time.
+
+![ex](https://user-images.githubusercontent.com/68213812/113988351-5726c700-988a-11eb-9c30-d5feea970e67.png)
+
+For more details about STFT, visit the linked site in the reference.
+
+
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)
 Erase Power Frequency and background noise
+
+## Reference
+STFT: https://en.wikipedia.org/wiki/Short-time_Fourier_transform
+

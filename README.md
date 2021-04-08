@@ -34,9 +34,11 @@ By Fourier Transform, we can decompose this periodic sound into sum of sine wave
 ![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
 
 The spectrum gives us the magnitude(absolute value of amplitude) as a function of frequency.
-In this case, you can see that two sine waves are decomposed and represented as two peaks. 
 <br>
+In this case, you can see that two sine waves are decomposed and represented as two peaks. 
+
 This also means that we moved the time domain towards the frequency domain. But the audio data is a time series, so we lose some informations.
+<br>
 Solution for the information loss is __Short Time Fourier Transform(STFT)__. It computes several FFT at different time intervals so that it can preserve time informations.
 <br>
 The different intervals at which we perform the Fourier Transform is given by the frame size, and we call it __Window__. 

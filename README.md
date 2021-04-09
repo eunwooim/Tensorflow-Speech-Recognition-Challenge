@@ -33,7 +33,7 @@ By Fourier Transform, we can decompose this periodic sound into sum of sine wave
 
 ![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
 
-The spectrum gives us the magnitude(absolute value of amplitude) as a function of frequency.
+The spectrum gives us the magnitude(absolute value of output of FFT) as a function of frequency.
 <br>
 In this case, you can see that two sine waves are decomposed and represented as two peaks. 
 

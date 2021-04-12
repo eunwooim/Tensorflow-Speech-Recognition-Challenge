@@ -7,7 +7,7 @@ We are senior students of Hanyang University, Department of Mathematics. We form
 Recently, the penetration rate of IoT devices is increasing. It is very important to authenticate as a user because it is a device shared by multiple users.
 Although various biometric technologies have developed, it is characterized by the ability to lower order while certifying that it is user, especially if it uses voice.
 <br>
-In other words, as long as users say keywords they registered, they can aim for automation by performing assigned commands at the same time as having exclusive access to private access to information.
+In other words, as long as users say keywords they registered, by performing assigned commands at the same time as having exclusive access to private access to information and aim an automation.
 Therefore, the goal was to create a model that can fulfill both speaker and voice recognition simultaneously. 
 
 ### About Sound Wave
@@ -52,7 +52,10 @@ The given frame size is called __Window__, which is some number of samples. By S
 
 The spectrogram on the left side is presented as linear scale, and another one is presented as a log scale.
 <br>
-Therefore, from an audio data, we visualized features in both time and frequency domain by spectrogram.j
+Therefore, from an audio data, we visualized features in both time and frequency domain by spectrogram.
+
+## About MFCCs
+
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

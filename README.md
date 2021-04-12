@@ -59,7 +59,7 @@ Therefore, from an audio data, we visualized features in both time and frequency
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)
-Erase Power Frequency and background noise
+Erase Power Frequency(60kHz) and background noise
 
 ## Reference
 STFT: https://en.wikipedia.org/wiki/Short-time_Fourier_transform

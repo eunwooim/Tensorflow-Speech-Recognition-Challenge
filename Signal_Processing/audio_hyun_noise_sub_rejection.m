@@ -23,8 +23,8 @@ clear empty*
     [b_notch_150, a_notch_150] = butter(3, [148 152]/(audio_Fs/2), 'stop');   % 150 Hz notch filter
     [b_notch_200, a_notch_200] = butter(3, [198 202]/(audio_Fs/2), 'stop');   % 200 Hz notch filter
     [b_notch_250, a_notch_250] = butter(3, [248 252]/(audio_Fs/2), 'stop');   % 250 Hz notch filter
-    [b, a] = butter(3, [300 4000]/(audio_Fs/2), 'bandpass');  % 300~4000 Hz 구간만 사용
-
+    [b, a] = butter(3, [300 4000]/(audio_Fs/2), 'bandpass');  % 300~4000 Hz 구간만 사용 
+    
 %%
 for ww = 1 : length(words)
     word_path = [default_path, '\', words{ww}];

@@ -108,14 +108,14 @@ for ww = 1 : length(words)
                 cd([default_path, '\Preprocessed_mat\',words{ww}])
                 save(save_name, 'Epoch', 'n_Epochs', 'num_nan');
                 
-                % spectrogram 생성
+                % spectrogram 생성 248*65 (Time*Frequence)
                 cd([default_path, '\Preprocessed_spect\',words{ww}])
                 temp_mat = cell2mat(Epoch);
                 temp_spe = spectrogram(temp_mat, rectwin(Epoch_length*audio_Fs), 0 , Epoch_length*audio_Fs,audio_Fs);
                 temp_spect = abs(temp_spe)';
                 xlswrite(spect_name,temp_spect)
                              
-                % mfcc 생성
+                % mfcc 생성 196*14 (Time * index)
                 cd([default_path, '\Preprocessed_mfcc\',words{ww}])
                 temp_mfcc =  mfcc(temp_mat,audio_Fs);
                 xlswrite(mfcc_name,temp_mfcc)

@@ -52,7 +52,7 @@ The spectrogram on the left side is presented as linear scale, and another one i
 Therefore, from an audio data, we visualized features in both time and frequency domain by spectrogram.
 
 ## About MFCCs
-
+MFCC is well prepared to imitate human hearing properties.
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

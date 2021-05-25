@@ -1,4 +1,3 @@
-def openmax_param(model,trainx,trainy):
     '''Convert Close Set Classification into Open Set Classification
     Parameters
     ----------
@@ -27,6 +26,10 @@ def openmax_param(model,trainx,trainy):
     8. Weight with the probability of the given data is an outlier.
     9. Apply Softmax.
     '''
+    
+import numpy as np
+
+def openmax_param(model,trainx,trainy):
     import pandas as pd
     import keras
     from tensorflow.keras import optimizers

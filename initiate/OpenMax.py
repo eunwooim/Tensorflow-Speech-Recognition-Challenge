@@ -1,4 +1,10 @@
 import numpy as np
+def distance(vector1,vector2):
+    vector1 = np.array(vector1)
+    vector2 = np.array(vector2)
+    vector1 = vector1 - vector2
+    vector1 = vector1**2
+    return vector1.sum()
 
     '''Convert Close Set Classification into Open Set Classification
     Parameters
@@ -33,12 +39,6 @@ def openmax_param(model,trainx,trainy):
     import pandas as pd
     import keras
     from tensorflow.keras import optimizers
-    def distance(vector1,vector2):
-        vector1 = np.array(vector1)
-        vector2 = np.array(vector2)
-        vector1 = vector1 - vector2
-        vector1 = vector1**2
-        return vector1.sum()
     class_num = len(np.array(model.weights[-1])) # Number of Class
     if len(np.shape(trainx))!=4:
         trainx = np.expand_dims(trainx,axis=-1)

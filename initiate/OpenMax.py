@@ -73,7 +73,7 @@ def openmax_param(model,trainx,trainy):
     for i in range(len(distance_matrix)): # Generate Weibull Distribution
         temp = weibull_min.fit(distance_matrix[i][-20:])
         hyparam[i] = hyparam[i]+list(temp)
-    return hyparam, new_model
+    return hyparam, new_model, class_num
 
 def openmax(xdata,ydata,returnvalue):
     hyparam = returnvalue[0]; new_model = returnvalue[1]
@@ -81,7 +81,7 @@ def openmax(xdata,ydata,returnvalue):
     new_logits=[]
     for idx in range(len(pred)):
         new_logit=[];unknown=0
-        for ind in range(class_num):
+        for ind in range(returnvalue[2]):
             logit=pred[idx]
             distance_=distance(logit,mean_vector[ind])
             weight=weibull_min.cdf(distance_,hyparam[ind][0],

@@ -1,3 +1,5 @@
+import numpy as np
+
     '''Convert Close Set Classification into Open Set Classification
     Parameters
     ----------
@@ -27,8 +29,6 @@
     9. Apply Softmax.
     '''
     
-import numpy as np
-
 def openmax_param(model,trainx,trainy):
     import pandas as pd
     import keras

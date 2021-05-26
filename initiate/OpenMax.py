@@ -83,8 +83,8 @@ def openmax(xdata,returnvalue):
     new_logits=[]
     for idx in range(len(pred)):
         new_logit=[];unknown=0
+        logit=pred[idx]
         for ind in range(class_num):
-            logit=pred[idx]
             distance_=distance(logit,mean_vector[ind])
             weight=weibull_min.cdf(distance_,hyparam[ind][0],
                                    hyparam[ind][1],hyparam[ind][2])

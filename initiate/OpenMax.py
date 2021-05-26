@@ -75,7 +75,7 @@ def openmax_param(model,trainx,trainy):
         hyparam[i] = hyparam[i]+list(temp)
     return hyparam, new_model, class_num, mean_vector
 
-def openmax(xdata,ydata,returnvalue):
+def openmax(xdata,returnvalue):
     from scipy.stats import weibull_min
     hyparam = returnvalue[0]; new_model = returnvalue[1]
     class_num = returnvalue[2]; mean_vector = returnvalue[3]

@@ -89,7 +89,7 @@ def openmax(xdata,returnvalue):
             weight=weibull_min.cdf(distance_,hyparam[ind][0],
                                    hyparam[ind][1],hyparam[ind][2])
             new_logit.append(logit[ind]*(1-weight))
-            unknown+=pred[idx][ind]*weight
+            unknown+=logit[ind]*weight
         new_logit.append(unknown)
         new_logits.append(new_logit)
     output = []

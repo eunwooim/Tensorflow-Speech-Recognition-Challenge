@@ -2,7 +2,7 @@
 clear all; close all; clc
 
 %%
-default_path = 'C:\Users\김현섭\Desktop\audio'; % 분석할 데이터가 있는 폴더의 위치 설정
+default_path = 'C:\Users\HIT\Desktop\audio'; % 분석할 데이터가 있는 폴더의 위치 설정
 cd(default_path)
 
 audio_Fs = 16000;     
@@ -29,7 +29,7 @@ clear empty*
 for ww = 1 : length(words)
     word_path = [default_path, '\', words{ww}];
     for ii = 1:length(hash_list) % 각 인원마다 
-        for tt = 0 : 15          % trial이 최대 15개까지 있다고 가정
+        for tt = 0 : 11          % trial이 최대 11개까지 있다고 가정
             clearvars -except default_path audio_Fs words txt_hash hash_list b a word_path ww ii tt b_notch* a_notch*
             close all
             
@@ -54,41 +54,41 @@ for ww = 1 : length(words)
                 temp_f_audio = fft(temp_audio);
                 temp_power = abs(temp_f_audio);
                 temp_power(2:end) = temp_power(2:end).^2;
-                for pp = 3 : length(temp_power)/2-1
+                half_line = round(length(temp_power)/2)-1;
+                for pp = 3 : half_line
                     temp_snr = temp_power(pp) * (5-1) /... % peak power * (+-2 내의 point 개수 -1) / (peak power를 제외한 +-2 내의 power 평균)
                     (sum(temp_power(pp-2:pp+2))-temp_power(pp)); % +- 2 이내 SNR 구함
                     if temp_snr >= snr_th
                         temp_f_audio(pp) = 0;
                         temp_f_audio(length(temp_f_audio)-pp+2) = 0;
                         pp = pp + 2;
-                        if pp >= length(temp_power)/2-1
+                        if pp >= half_line
                             break
                         end
                     end
                 end
                 
                 temp_clear = ifft(temp_f_audio);
-                half_leng = round(length(temp_f_audio)/2) +1;
+                half_leng = half_line + 2;
                 n_nan = length(find(temp_f_audio(1:half_leng)));
                 if  n_nan < round(half_leng/4)   % reject가 75% 이상 일어난 것은 정상적인 음성이 아닌 것으로 분류 
                     continue
                 end
                 
-                temp_full = zeros(16000,1);
-                temp_full(1:length(temp_clear)) = temp_clear; %zero padding
-                
                 % save files
-                save_name = ['preprocessed_', words{ww},'_', hash_list{ii}, '_', num2str(tt), '.mat'];
+%                save_name = ['preprocessed_', words{ww},'_', hash_list{ii}, '_', num2str(tt), '.mat'];
                 mfcc_name = ['preprocessed_', words{ww},'_', hash_list{ii}, '_', num2str(tt), '_mfcc.csv'];
                 
                 % save mat
-                cd([default_path, '\Preprocessed_mat\',words{ww}])
-                save(save_name, 'n_nan', 'temp_f_audio');
+%                cd([default_path, '\Preprocessed_mat\',words{ww}])
+%                save(save_name, 'n_nan', 'temp_f_audio');
                 
                 % mfcc 생성
                 cd([default_path, '\Preprocessed_mfcc\',words{ww}])
-                temp_mfcc =  mfcc(temp_full,audio_Fs);
-                csvwrite(mfcc_name,temp_mfcc)
+                temp_mfcc =  mfcc(temp_clear,audio_Fs,'NumCoeffs',39);
+                temp_mfcc_padding = zeros(135, 40);
+                temp_mfcc_padding(1:size(temp_mfcc,1),:) = temp_mfcc; %zero padding
+                csvwrite(mfcc_name,temp_mfcc_padding)
               
             disp(ii)
         end

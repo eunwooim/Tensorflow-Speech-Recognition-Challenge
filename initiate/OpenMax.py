@@ -1,10 +1,11 @@
 import numpy as np
-def distance(vector1,vector2):
-    vector1 = np.array(vector1)
-    vector2 = np.array(vector2)
-    vector1 = vector1 - vector2
-    vector1 = vector1**2
-    return vector1.sum()
+from numpy.linalg import norm
+
+def cos_sim(A,B):
+    return np.dot(A, B)/(norm(A)*norm(B))
+
+def distance(vector1, vector2):
+    return -cos_sim(vector1,vector2)
 
     '''Convert Close Set Classification into Open Set Classification
     Parameters

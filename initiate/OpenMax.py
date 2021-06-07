@@ -1,12 +1,6 @@
 import numpy as np
 from numpy.linalg import norm
 
-def cos_sim(A,B):
-    return np.dot(A, B)/(norm(A)*norm(B))
-
-def distance(vector1, vector2):
-    return -cos_sim(vector1,vector2)
-
     '''Convert Close Set Classification into Open Set Classification
     Parameters
     ----------
@@ -35,6 +29,12 @@ def distance(vector1, vector2):
     8. Weight with the probability of the given data is an outlier.
     9. Apply Softmax.
     '''
+
+def cos_sim(A,B):
+    return np.dot(A, B)/(norm(A)*norm(B))
+
+def distance(vector1, vector2):
+    return -cos_sim(vector1,vector2)
     
 def openmax_param(model,trainx,trainy):
     import pandas as pd

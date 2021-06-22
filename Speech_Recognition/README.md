@@ -33,6 +33,20 @@ __Notation__
 This method requires a CNN model that has very high accuracy performance (nearly 100% with training data). In addition, we did a lot of experiments in various condition. The highest performance showed when Euclidean distance is replaced into cosine similarity, and select 20 data as outlier. 
 
 ## Result & Discussion
-As aforementioned method, we constructed 'Lightweight Open Set Command Recognizer' with 77.48% accuracy. 
+As aforementioned method, we constructed 'Lightweight Open Set Command Recognizer' with 77.48% accuracy.
 ![temp](https://user-images.githubusercontent.com/68213812/122919376-20495300-d39b-11eb-96c9-2cc2652fd463.png)
+<br>
+0 to 10 corresponds to yes, no, up, down, left, right, on, off, stop, go, 'unknown'
 We performed Phonetic Analysis with our result. 
+![temp](https://user-images.githubusercontent.com/68213812/122924846-2f330400-d3a1-11eb-9245-430e43d84010.png)
+<br>
+Attached figure describes the phonemes of the words, and they are colored same if they have phones with similar pronounciation.
+Note the number of the color and mispredictions. You'll find it interesting.
+
+To further develop, I can come up with several ideas.
+1. Apply another open set recognition algorithm.
+2. Set a threshold for the openmax algorithm.
+3. Replace Mean Vector into a Vector that causes the sum of the inner production to be maximum.
+4. Replace Logit Vector into another Voice Template.
+
+In summary, I preprocessed the sound wave into MFCC, built a CNN model, and applied OpenMax algorithm and achieved accuracy of 77.48%. I also highlighted an interesting phonetic analysis.

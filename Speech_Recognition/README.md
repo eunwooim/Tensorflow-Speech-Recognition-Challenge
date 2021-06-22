@@ -27,6 +27,7 @@ __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is
 9. Apply Softmax.
 <br>
 #### Notation
+<br>
 - Logit Vector: Voice Template(a vector which is input of Softmax Layer)
 - Mean Vector: Mean of Euclidean distance of Logit Vectors
 <br>

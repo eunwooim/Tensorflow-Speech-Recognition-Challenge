@@ -6,6 +6,9 @@ Goal of Tensorflow Speech Recognition Challenge is recognizing 10 speech command
 ![temp](https://user-images.githubusercontent.com/68213812/122737143-b6a64780-d2bb-11eb-8f7b-3588acfb77e1.png)
 
 ### Convolutional Neural Networks
+With preprocessed MFCC, we built CNN model for classification. The model has 3 convolutional layers, and 2 dense layers. Between convolutional layers, we added batch normalization. For purpose of lightweight, we used depthwise convolution.
+
+![temp](https://user-images.githubusercontent.com/68213812/122908116-c04caf80-d38e-11eb-8305-1a77844896ac.png)
 
 ### Open Set Recognition
 

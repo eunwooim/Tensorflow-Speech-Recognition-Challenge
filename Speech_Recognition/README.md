@@ -15,8 +15,7 @@ With our CNN model, we can only classify 10 words. In order to aim our goal, we 
 <br>
 __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is described below.
 
-#### [__Algorithm__](https://ieeexplore.ieee.org/document/7780542)
-<br>
+#### [Algorithm](https://ieeexplore.ieee.org/document/7780542)
 1. Select the data classified correctly among the training data.
 2. Seperate the X data by class.
 3. Compute Logit Vector for each class.
@@ -27,7 +26,7 @@ __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is
 8. Weight with the probability of the given data is an outlier.
 9. Apply Softmax.
 <br>
-#### __Notation__
+#### Notation
 - Logit Vector: Voice Template(a vector which is input of Softmax Layer)
 - Mean Vector: Mean of Euclidean distance of Logit Vectors
 <br>

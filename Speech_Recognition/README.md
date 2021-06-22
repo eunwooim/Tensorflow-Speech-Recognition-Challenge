@@ -14,8 +14,8 @@ With [preprocessed MFCC](https://github.com/imeunu/Tensorflow_SpeechRecognition_
 With our CNN model, we can only classify 10 words. In order to aim our goal, we should apply open set recognition to our classifier.
 <br>
 __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is described below.
-<br>
-[__Algorithm__](https://ieeexplore.ieee.org/document/7780542)
+
+#### [__Algorithm__](https://ieeexplore.ieee.org/document/7780542)
 <br>
 1. Select the data classified correctly among the training data.
 2. Seperate the X data by class.
@@ -27,7 +27,7 @@ __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is
 8. Weight with the probability of the given data is an outlier.
 9. Apply Softmax.
 <br>
-__Notation__
+#### __Notation__
 - Logit Vector: Voice Template(a vector which is input of Softmax Layer)
 - Mean Vector: Mean of Euclidean distance of Logit Vectors
 <br>

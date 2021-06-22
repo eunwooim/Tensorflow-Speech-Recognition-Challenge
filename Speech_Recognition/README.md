@@ -25,12 +25,11 @@ __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is
 7. Generate Weibull Distribution with outliers ([Extreme Value Theorem](https://en.wikipedia.org/wiki/Fisher%E2%80%93Tippett%E2%80%93Gnedenko_theorem)).
 8. Weight with the probability of the given data is an outlier.
 9. Apply Softmax.
-<br>
+
 #### Notation
-<br>
 - Logit Vector: Voice Template(a vector which is input of Softmax Layer)
 - Mean Vector: Mean of Euclidean distance of Logit Vectors
-<br>
+
 This method requires a CNN model that has very high accuracy performance (nearly 100% with training data). In addition, we did a lot of experiments in various condition. The highest performance showed when Euclidean distance is replaced into cosine similarity, and select 20 data as outlier. 
 
 ## Result & Discussion

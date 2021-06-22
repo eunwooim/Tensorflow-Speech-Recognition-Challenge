@@ -14,6 +14,7 @@ With [preprocessed MFCC](https://github.com/imeunu/Tensorflow_SpeechRecognition_
 With our CNN model, we can only classify 10 words. In order to aim our goal, we should apply open set recognition to our classifier.
 <br>
 __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is described below.
+<br>
 [__Algorithm__](https://ieeexplore.ieee.org/document/7780542)
 <br>
 1. Select the data classified correctly among the training data.

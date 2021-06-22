@@ -43,7 +43,7 @@ We performed Phonetic Analysis with our result.
 Attached figure describes the phonemes of the words, and they are colored same if they have phones with similar pronounciation.
 Note the number of the color and mispredictions. You'll find it interesting.
 
-To further develop, I can come up with several ideas.
+For further develop, I can come up with several ideas.
 1. Apply another open set recognition algorithm.
 2. Set a threshold for the openmax algorithm.
 3. Replace Mean Vector into a Vector that causes the sum of the inner production to be maximum.

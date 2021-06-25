@@ -28,7 +28,7 @@ __OpenMax__ algorithm enabled us to apply open set recognition. The algorithm is
 
 #### Notation
 - Logit Vector: Voice Template(a vector which is input of Softmax Layer)
-- Mean Vector: Mean of Euclidean distance of Logit Vectors
+- Mean Vector: Vector consisting of the mean of each component of the Logit Vector
 
 This method requires a CNN model that has very high accuracy performance (nearly 100% with training data). In addition, we did a lot of experiments in various condition. The highest performance showed when Euclidean distance is replaced into cosine similarity, and select 20 data as outlier. 
 

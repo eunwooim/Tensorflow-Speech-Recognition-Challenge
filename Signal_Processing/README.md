@@ -11,7 +11,7 @@ In this case, period is 25 seconds and amplitude is 1. __Frequency__ is the inve
 Frequency and amplitude have relationship with pitch and loudness. Note that pitch and loudness are not some physical quantities, but relative perceptions. The higher frequencies are perceived as higher pitch, and higher amplitudes are perceived as louder sound.
 <br>
 
-Since the sound wave is continuous, we should perform analog digital conversion. By __Sampling__, wave is sampled by specific time intervals and amplitude will be quantised by with limited number of bits. In the example, number of red stems in 1 second is __sampling rate__, and wave is converted into array of projected amplitudes(y values of blue dots).
+Since the sound wave is continuous, we should perform analog digital conversion. By __Sampling__, wave is sampled by specific time intervals and amplitude will be quantised by with limited number of bits. In the example, number of red stems in 1 second is __sampling rate__, and wave is converted into array of projected amplitudes(y values of blue dots). As a results of conversion, the wave form become discrete time signal. We need to apply discrete signal processing for analysis digital audio signals.
 
 
 ### [Fourier Transform, Spectrogram](https://github.com/imeunu/Capstone_PBL/blob/main/initiate/Visualize.ipynb)
@@ -21,7 +21,7 @@ If we add following two sine waves, we'll obtain some wave like this.
 
 The frequency and amplitude of the first wave is 4 and 1, and the second wave is 11,2.
 <br>
-By Fourier Transform, we can decompose this periodic sound into sum of sine waves oscilliating at different frequencies. Following picture is a power spectrum of added sine wave.
+By Fourier Transform, we can decompose signals into sum of sinusoidal waves oscilliating at different frequencies. Following picture is a power spectrum of added sine waves.
 
 ![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
 

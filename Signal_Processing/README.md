@@ -25,7 +25,7 @@ By Fourier Transform, we can decompose signals into sum of sinusoidal waves with
 
 ![ex](https://user-images.githubusercontent.com/68213812/113828672-a18f4180-97bf-11eb-8482-1ec4d230b611.png)
 
-The spectrum gives us the magnitude(absolute value of output of FFT) as a function of frequency.
+The power spectrum gives us the magnitude(absolute value of output of FFT) as a function of frequency.
 <br>
 In this case, you can see that two sine waves are decomposed and represented as two peaks. 
 
@@ -40,10 +40,10 @@ The given frame size is called __Window__, which is some number of samples. By S
 
 The spectrogram on the left side is presented as linear scale, and another one is presented as a log scale.
 <br>
-Therefore, from an audio data, we visualized features in both time and frequency domain by spectrogram.
+As we see, The spectrogram is the one of good way to visualize features of signal data in both time and frequency information.
 
 ## About MFCCs
-MFCC is well prepared to imitate human hearing properties.
+The MFCC is also known to the other way to extract voice signal with visualizng feature plot. The MFCC well prepared to imitate human hearing properties. With mel filter bank
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

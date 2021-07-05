@@ -43,7 +43,7 @@ The spectrogram on the left side is presented as linear scale, and another one i
 As we see, The spectrogram is the one of good way to visualize features of signal data in both time and frequency information.
 
 ## About MFCCs
-The MFCC is also known to the other way to extract voice signal with visualizng feature plot. The MFCC well prepared to imitate human hearing properties. With mel filter bank
+The MFCC is also known to the other way to extract voice signal with visualizng feature plot. The MFCC well prepared to imitate human hearing properties. The Mel-filterbank is working as system of ear properties. 
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)

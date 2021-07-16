@@ -43,11 +43,11 @@ The spectrogram on the left side is presented as linear scale, and another one i
 As we see, The spectrogram is the one of good way to visualize features of signal data in both time and frequency information.
 
 ## About MFCCs
-The MFCC is also known to the other way to extract voice signal with visualizng feature plot. The MFCC well prepared to imitate human hearing properties. The Mel-filterbank is working as system of ear properties. 
+The MFCC is also known to the other way to extract voice signal with visualizng feature plot. The MFCC well prepared to imitate human hearing properties. The Mel-filterbank is working as system of ear properties. That makes low frequencies well pass out and high frequencies compress down. So, The Ouput data of Mel-filterbank is small but has human voice informations almost equaliy to spectrogram. What we aim to is shorten processing time. Thus We gonna exploit MFCC. For the sake of compatibility to deep neural network, The data size automatically become 140 by 41 with zero padding.
 
 
 ## [Signal Processing](https://github.com/imeunu/Capstone_PBL/tree/main/Signal_Processing)
-Erase Power Frequency(60kHz) and background noise
+Erase Noise Frequency(50Hz for EU, 60Hz for KR, USA) which is caused power source. And delete the background noise. In this section, We tried many different methods of signal processing techniques such as LMS, Adaptive neural filter, covariance filtering, Savitzky-Golay filtering, constant manual filtering etc. Among them, We will introduce some techniques that may efficiently contribute accuracy arise. 
 
 ## Reference
 STFT: https://en.wikipedia.org/wiki/Short-time_Fourier_transform
